@@ -1,5 +1,5 @@
 //
-//  ResponseError.swift
+//  OperationError.swift
 //  APPSfactoryTestTask
 //
 //  Created by Alexander Snegursky on 12/07/2018.
@@ -10,9 +10,9 @@
 ///
 /// - decoding: decoding error
 /// - alamofire: alamofire error
-enum ResponseError: Error {
+enum OperationError: Error {
     
     case decoding(String)
-    case alamofire(String)
+    case networking(String)
     
 }

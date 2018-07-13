@@ -23,13 +23,43 @@ final class APIManager {
 extension APIManager: APIManagerProtocol {
     
     func searchArtist(name: String,
-                      completion: @escaping (Response<[Artist], ResponseError>) -> Void) {
+                      completion: @escaping (OperationResult<[ArtistSearch.Artist], OperationError>) -> Void) {
         let request = SearchArtistRequest(name: name)
         
-        requester.fetchObject(request: request) { (response: Response<ArtistSearchResponse, ResponseError>) in
+        requester.fetchObject(request: request) { (response: OperationResult<ArtistSearch, OperationError>) in
             switch response {
             case .success(let result):
                 completion(.success(result.artists))
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func topAlbums(artistId: String,
+                   completion: @escaping (OperationResult<[TopAlbums.Album], OperationError>) -> Void) {
+        let request = TopAlbumsRequest(mbid: artistId)
+        
+        requester.fetchObject(request: request) { (response: OperationResult<TopAlbums, OperationError>) in
+            switch response {
+            case .success(let result):
+                completion(.success(result.albums))
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func albumInfo(albumId: String,
+                   completion: @escaping (OperationResult<AlbumInfo.Album, OperationError>) -> Void) {
+        let request = AlbumInfoRequest(mbid: albumId)
+        
+        requester.fetchObject(request: request) { (response: OperationResult<AlbumInfo, OperationError>) in
+            switch response {
+            case .success(let result):
+                completion(.success(result.album))
                 
             case .failure(let error):
                 completion(.failure(error))

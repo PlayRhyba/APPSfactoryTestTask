@@ -1,5 +1,5 @@
 //
-//  Array+ImageSize.swift
+//  Sequence+ImageSize.swift
 //  APPSfactoryTestTask
 //
 //  Created by Alexander Snegursky on 13/07/2018.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-extension Array where Element == Image {
+extension Sequence where Iterator.Element == Image {
     
-    func withSize(_ size: Image.Size) -> URL? {
+    func image(size: Image.Size) -> URL? {
         return filter { $0.size == size }
-            .map { $0.url }
+            .compactMap { URL(string: $0.url) }
             .first
     }
     

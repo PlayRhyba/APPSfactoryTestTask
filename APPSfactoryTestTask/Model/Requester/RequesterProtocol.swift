@@ -14,7 +14,7 @@ protocol RequesterProtocol {
     ///   - request: request representation
     ///   - completion: completion handler
     func fetchObject<T: Decodable>(request: Requestable,
-                                   completion: @escaping (Response<T, ResponseError>) -> Void)
+                                   completion: @escaping (OperationResult<T, OperationError>) -> Void)
     
     /// Cancel all operations
     func cancel()

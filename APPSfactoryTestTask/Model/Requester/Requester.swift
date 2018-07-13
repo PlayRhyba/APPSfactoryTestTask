@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import os.log
 
 final class Requester {
     
@@ -26,24 +27,26 @@ final class Requester {
 extension Requester: RequesterProtocol {
     
     func fetchObject<T: Decodable>(request: Requestable,
-                                   completion: @escaping (Response<T, ResponseError>) -> Void) {
-        let parameters = request.parameters.merging(["format": "json"],
-                                                    uniquingKeysWith: { (first, _) in first })
+                                   completion: @escaping (OperationResult<T, OperationError>) -> Void) {
         sessionManager
-            .request(request.baseURL, parameters: parameters)
+            .request(request.baseURL, parameters: request.parameters)
             .validate()
             .responseData { [unowned self] response in
                 switch response.result {
                 case .success(let data):
+                    os_log("DATA RECEIVED: %@", String(data: data, encoding: .utf8) ?? "")
+                    
                     do {
                         let object = try self.decoder.decode(T.self, from: data)
                         completion(.success(object))
                     } catch let error {
+                        os_log("DECODING ERROR: %@", error.localizedDescription)
                         completion(.failure(.decoding(error.localizedDescription)))
                     }
                     
                 case .failure(let error):
-                    completion(.failure(.alamofire(error.localizedDescription)))
+                    os_log("NETWORKING ERROR: %@", error.localizedDescription)
+                    completion(.failure(.networking(error.localizedDescription)))
                 }
         }
     }

@@ -1,34 +1,34 @@
 //
-//  SearchArtistRequest.swift
+//  AlbumInfoRequest.swift
 //  APPSfactoryTestTask
 //
 //  Created by Alexander Snegursky on 13/07/2018.
 //  Copyright © 2018 Alexander Snegursky. All rights reserved.
 //
 
-struct SearchArtistRequest {
+struct AlbumInfoRequest {
     
-    let name: String
+    let mbid: String
     
     // MARK: Initialization
     
-    init(name: String) {
-        self.name = name
+    init(mbid: String) {
+        self.mbid = mbid
     }
     
 }
 
 // MARK: Requestable
 
-extension SearchArtistRequest: Requestable {
+extension AlbumInfoRequest: Requestable {
     
     var baseURL: String {
         return GlobalConstants.baseURL
     }
     
     var parameters: [String : String] {
-        return ["method": "artist.search",
-                "artist": name.lowercased(),
+        return ["method": "album.getinfo",
+                "mbid": mbid,
                 "api_key": GlobalConstants.apiKey,
                 "format": "json"]
     }

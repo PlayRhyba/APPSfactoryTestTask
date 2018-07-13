@@ -14,6 +14,22 @@ protocol APIManagerProtocol {
     ///   - name: artist's name
     ///   - completion: completion handler with collection of found artists' info
     func searchArtist(name: String,
-                      completion: @escaping (Response<[Artist], ResponseError>) -> Void)
+                      completion: @escaping (OperationResult<[ArtistSearch.Artist], OperationError>) -> Void)
+    
+    /// Retrieve top albums of specified artist
+    ///
+    /// - Parameters:
+    ///   - artistId: musicbrainz id for the artist
+    ///   - completion: completion handler with collection of found albums
+    func topAlbums(artistId: String,
+                   completion: @escaping (OperationResult<[TopAlbums.Album], OperationError>) -> Void)
+    
+    /// Retrieve details for specified album
+    ///
+    /// - Parameters:
+    ///   - albumId: musicbrainz id for the album
+    ///   - completion: completion handler with album details
+    func albumInfo(albumId: String,
+                   completion: @escaping (OperationResult<AlbumInfo.Album, OperationError>) -> Void)
     
 }

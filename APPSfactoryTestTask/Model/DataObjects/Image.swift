@@ -17,6 +17,7 @@ struct Image: Codable {
         case large
         case extralarge
         case mega
+        case unknown = ""
         
     }
     
@@ -27,7 +28,7 @@ struct Image: Codable {
         
     }
     
-    let url: URL
+    let url: String
     let size: Size
     
 }

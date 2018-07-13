@@ -1,16 +1,16 @@
 //
-//  Response.swift
+//  OperationResult.swift
 //  APPSfactoryTestTask
 //
 //  Created by Alexander Snegursky on 12/07/2018.
 //  Copyright © 2018 Alexander Snegursky. All rights reserved.
 //
 
-/// Generic response wrapper (do not want to create dependency to Alamofire)
+/// Generic operation result wrapper (do not want to create dependency to Alamofire)
 ///
-/// - success: Response with content
-/// - failure: Failure response
-enum Response<Value, Error: Swift.Error> {
+/// - success: result with content
+/// - failure: failure with error
+enum OperationResult<Value, Error: Swift.Error> {
     
     case success(Value)
     case failure(Error)

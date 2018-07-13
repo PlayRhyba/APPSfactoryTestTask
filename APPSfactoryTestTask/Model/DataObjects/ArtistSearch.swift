@@ -1,12 +1,20 @@
 //
-//  ArtistSearchResponse.swift
+//  ArtistSearch.swift
 //  APPSfactoryTestTask
 //
 //  Created by Alexander Snegursky on 13/07/2018.
 //  Copyright © 2018 Alexander Snegursky. All rights reserved.
 //
 
-struct ArtistSearchResponse: Decodable {
+struct ArtistSearch: Decodable {
+    
+    struct Artist: Decodable {
+        
+        let name: String
+        let mbid: String?
+        let image: [Image]
+        
+    }
     
     struct ArtistMatches: Decodable {
         
@@ -24,10 +32,11 @@ struct ArtistSearchResponse: Decodable {
     
 }
 
-extension ArtistSearchResponse {
+extension ArtistSearch {
     
     var artists: [Artist] {
         return results.artistmatches.artist
+            .filter { $0.mbid != nil }
     }
     
 }
