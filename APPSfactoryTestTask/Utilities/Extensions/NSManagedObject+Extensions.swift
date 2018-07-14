@@ -7,7 +7,6 @@
 //
 
 import CoreData
-import os.log
 
 extension NSManagedObject {
     

@@ -10,28 +10,13 @@ import CoreData
 
 final class AlbumStorage {
     
+    static let shared = AlbumStorage()
     private let persistentContainer: NSPersistentContainer
     
     // MARK: Initialization
     
-    init() {
+    private init() {
         persistentContainer = NSPersistentContainer(name: GlobalConstants.dataModelName)
-    }
-    
-}
-
-// MARK: Setup
-
-extension AlbumStorage {
-    
-    func setup(completion: @escaping (OperationResult<Void, OperationError>) -> Void) {
-        persistentContainer.loadPersistentStores { (_, error) in
-            if let error = error {
-                completion(.failure(.database(error.localizedDescription)))
-            } else {
-                completion(.success(()))
-            }
-        }
     }
     
 }
@@ -43,9 +28,9 @@ extension AlbumStorage {
 extension AlbumStorage {
     
     func clear() {
-        let context = persistentContainer.viewContext
-        try? Album.deleteAll(inContext: context)
-        save()
+//        let context = persistentContainer.viewContext //!!!
+//        try? Album.deleteAll(inContext: context)
+//        save()
     }
     
     private func save() {
@@ -61,6 +46,16 @@ extension AlbumStorage {
 // MARK: AlbumStorageProtocol
 
 extension AlbumStorage: AlbumStorageProtocol {
+    
+    func load(completion: @escaping (OperationResult<Void, OperationError>) -> Void) {
+        persistentContainer.loadPersistentStores { (_, error) in
+            if let error = error {
+                completion(.failure(.database(error.localizedDescription)))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
     
     func fetchAlbums(sortDescriptor: NSSortDescriptor,
                      completion: @escaping (OperationResult<[Album], OperationError>) -> Void) {

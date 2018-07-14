@@ -24,25 +24,12 @@ final class AlbumStorageTests: QuickSpec {
             let testData = AlbumStorageTests.makeAlbum()
             var sut: AlbumStorage!
             
-            context("Setup") {
-                it("should be successfully setup") {
-                    sut = AlbumStorage()
-                    
-                    waitUntil(timeout: Constants.timeout) { done in
-                        sut.setup { result in
-                            expect(result.isSuccess).to(beTrue())
-                            done()
-                        }
-                    }
-                }
-            }
-            
             context("Adding") {
                 beforeEach {
-                    sut = AlbumStorage()
+                    sut = AlbumStorage.shared
                     
                     waitUntil(timeout: Constants.timeout) { done in
-                        sut.setup { _ in done() }
+                        sut.load { _ in done() }
                     }
                 }
                 
@@ -91,10 +78,10 @@ final class AlbumStorageTests: QuickSpec {
             
             context("Fetching") {
                 beforeEach {
-                    sut = AlbumStorage()
+                    sut = AlbumStorage.shared
                     
                     waitUntil(timeout: Constants.timeout) { done in
-                        sut.setup { _ in
+                        sut.load { _ in
                             sut.clear()
                             sut.add(album: testData) { _ in done() }
                         }
@@ -135,10 +122,10 @@ final class AlbumStorageTests: QuickSpec {
             
             context("Removing") {
                 beforeEach {
-                    sut = AlbumStorage()
+                    sut = AlbumStorage.shared
                     
                     waitUntil(timeout: Constants.timeout) { done in
-                        sut.setup { _ in
+                        sut.load { _ in
                             sut.clear()
                             sut.add(album: testData) { _ in done() }
                         }

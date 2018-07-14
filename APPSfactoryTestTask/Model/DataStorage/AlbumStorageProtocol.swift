@@ -10,6 +10,11 @@ import Foundation
 
 protocol AlbumStorageProtocol {
     
+    /// Prepare storage to use
+    ///
+    /// - Parameter completion: completion handler
+    func load(completion: @escaping (OperationResult<Void, OperationError>) -> Void)
+    
     /// Fetch stored albums
     ///
     /// - Parameters:
