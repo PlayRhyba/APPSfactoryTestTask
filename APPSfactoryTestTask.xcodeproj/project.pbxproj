@@ -31,6 +31,13 @@
 		E3A99B8C20F8F7D2004C2EBD /* TopAlbumsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99B8B20F8F7D2004C2EBD /* TopAlbumsRequest.swift */; };
 		E3A99B8E20F91734004C2EBD /* AlbumInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99B8D20F91734004C2EBD /* AlbumInfoRequest.swift */; };
 		E3A99B9020F91A18004C2EBD /* AlbumInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99B8F20F91A18004C2EBD /* AlbumInfo.swift */; };
+		E3A99B9320F9374D004C2EBD /* AlbumStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99B9220F9374D004C2EBD /* AlbumStorageProtocol.swift */; };
+		E3A99B9520F937F3004C2EBD /* AlbumStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99B9420F937F3004C2EBD /* AlbumStorage.swift */; };
+		E3A99B9820F938C7004C2EBD /* AlbumStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3A99B9620F938C7004C2EBD /* AlbumStorage.xcdatamodeld */; };
+		E3A99BAB20F94AC7004C2EBD /* NSManagedObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99BAA20F94AC7004C2EBD /* NSManagedObject+Extensions.swift */; };
+		E3A99BAD20F963B4004C2EBD /* AlbumStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99BAC20F963B4004C2EBD /* AlbumStorageTests.swift */; };
+		E3A99BB020F96887004C2EBD /* AlbumInfoTestsData.json in Resources */ = {isa = PBXBuildFile; fileRef = E3A99BAF20F96887004C2EBD /* AlbumInfoTestsData.json */; };
+		E3A99BB220F97FF7004C2EBD /* NSSortDescriptor+Albums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99BB120F97FF7004C2EBD /* NSSortDescriptor+Albums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +83,13 @@
 		E3A99B8B20F8F7D2004C2EBD /* TopAlbumsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumsRequest.swift; sourceTree = "<group>"; };
 		E3A99B8D20F91734004C2EBD /* AlbumInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfoRequest.swift; sourceTree = "<group>"; };
 		E3A99B8F20F91A18004C2EBD /* AlbumInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfo.swift; sourceTree = "<group>"; };
+		E3A99B9220F9374D004C2EBD /* AlbumStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumStorageProtocol.swift; sourceTree = "<group>"; };
+		E3A99B9420F937F3004C2EBD /* AlbumStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumStorage.swift; sourceTree = "<group>"; };
+		E3A99B9720F938C7004C2EBD /* AlbumStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlbumStorage.xcdatamodel; sourceTree = "<group>"; };
+		E3A99BAA20F94AC7004C2EBD /* NSManagedObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extensions.swift"; sourceTree = "<group>"; };
+		E3A99BAC20F963B4004C2EBD /* AlbumStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumStorageTests.swift; sourceTree = "<group>"; };
+		E3A99BAF20F96887004C2EBD /* AlbumInfoTestsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AlbumInfoTestsData.json; sourceTree = "<group>"; };
+		E3A99BB120F97FF7004C2EBD /* NSSortDescriptor+Albums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Albums.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +171,9 @@
 		E3A0926E20F7D7940005C88E /* APPSfactoryTestTaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				E3A99BAE20F9684D004C2EBD /* TestData */,
 				E3A11D0420F81CD60065EC3A /* APIManagerTests.swift */,
+				E3A99BAC20F963B4004C2EBD /* AlbumStorageTests.swift */,
 				E3A0927120F7D7940005C88E /* Info.plist */,
 			);
 			path = APPSfactoryTestTaskTests;
@@ -166,10 +182,11 @@
 		E3A11CDB20F7F8CD0065EC3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E3A11CDC20F7F8CD0065EC3A /* Requester */,
 				E3A11CEC20F804DD0065EC3A /* Requests */,
 				E3A11CF720F806AD0065EC3A /* DataObjects */,
+				E3A11CDC20F7F8CD0065EC3A /* Requester */,
 				E3A11CED20F805360065EC3A /* APIManager */,
+				E3A99B9120F93708004C2EBD /* DataStorage */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,8 +269,28 @@
 			isa = PBXGroup;
 			children = (
 				E3A11CFE20F80CBA0065EC3A /* Sequence+ImageSize.swift */,
+				E3A99BAA20F94AC7004C2EBD /* NSManagedObject+Extensions.swift */,
+				E3A99BB120F97FF7004C2EBD /* NSSortDescriptor+Albums.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E3A99B9120F93708004C2EBD /* DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				E3A99B9620F938C7004C2EBD /* AlbumStorage.xcdatamodeld */,
+				E3A99B9220F9374D004C2EBD /* AlbumStorageProtocol.swift */,
+				E3A99B9420F937F3004C2EBD /* AlbumStorage.swift */,
+			);
+			path = DataStorage;
+			sourceTree = "<group>";
+		};
+		E3A99BAE20F9684D004C2EBD /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				E3A99BAF20F96887004C2EBD /* AlbumInfoTestsData.json */,
+			);
+			path = TestData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A99BB020F96887004C2EBD /* AlbumInfoTestsData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,16 +483,21 @@
 				E3A0925B20F7D7900005C88E /* AppDelegate.swift in Sources */,
 				E3A11CEF20F805530065EC3A /* APIManagerProtocol.swift in Sources */,
 				E3A11CF120F805600065EC3A /* APIManager.swift in Sources */,
+				E3A99B9520F937F3004C2EBD /* AlbumStorage.swift in Sources */,
 				E3A99B8E20F91734004C2EBD /* AlbumInfoRequest.swift in Sources */,
+				E3A99BB220F97FF7004C2EBD /* NSSortDescriptor+Albums.swift in Sources */,
 				E3A11CE320F7F9160065EC3A /* RequesterProtocol.swift in Sources */,
+				E3A99B9820F938C7004C2EBD /* AlbumStorage.xcdatamodeld in Sources */,
 				E3A99B9020F91A18004C2EBD /* AlbumInfo.swift in Sources */,
 				E3A11CF420F805BB0065EC3A /* GlobalConstants.swift in Sources */,
 				E3A11CE520F7F9260065EC3A /* Requester.swift in Sources */,
+				E3A99B9320F9374D004C2EBD /* AlbumStorageProtocol.swift in Sources */,
 				E3A11CE920F7FC280065EC3A /* OperationResult.swift in Sources */,
 				E3A11CE120F7F8CD0065EC3A /* HomeViewController.swift in Sources */,
 				E3A11CEB20F7FD790065EC3A /* OperationError.swift in Sources */,
 				E3A99B8A20F8F6BE004C2EBD /* TopAlbums.swift in Sources */,
 				E3A11D0320F815F50065EC3A /* SearchArtistRequest.swift in Sources */,
+				E3A99BAB20F94AC7004C2EBD /* NSManagedObject+Extensions.swift in Sources */,
 				E3A99B8C20F8F7D2004C2EBD /* TopAlbumsRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3A11D0520F81CD60065EC3A /* APIManagerTests.swift in Sources */,
+				E3A99BAD20F963B4004C2EBD /* AlbumStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +764,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E3A99B9620F938C7004C2EBD /* AlbumStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E3A99B9720F938C7004C2EBD /* AlbumStorage.xcdatamodel */,
+			);
+			currentVersion = E3A99B9720F938C7004C2EBD /* AlbumStorage.xcdatamodel */;
+			path = AlbumStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E3A0924F20F7D7900005C88E /* Project object */;
 }

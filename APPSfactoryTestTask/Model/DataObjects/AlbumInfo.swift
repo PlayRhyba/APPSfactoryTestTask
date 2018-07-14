@@ -22,6 +22,7 @@ struct AlbumInfo: Decodable {
             
         }
         
+        let mbid: String
         let name: String
         let artist: String
         let image: [Image]

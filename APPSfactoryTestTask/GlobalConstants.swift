@@ -15,4 +15,7 @@ struct GlobalConstants {
     /// LastFM API base URL
     static let baseURL = "http://ws.audioscrobbler.com/2.0"
     
+    /// Data model file name
+    static let dataModelName = "AlbumStorage"
+    
 }

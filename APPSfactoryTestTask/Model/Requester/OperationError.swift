@@ -10,9 +10,11 @@
 ///
 /// - decoding: decoding error
 /// - alamofire: alamofire error
+/// - database: database error
 enum OperationError: Error {
     
     case decoding(String)
     case networking(String)
+    case database(String)
     
 }

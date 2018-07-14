@@ -29,8 +29,8 @@ final class APIManagerTests: QuickSpec {
             context("Search of artist") {
                 it("should successfully return non-empty collection of artist entities") {
                     waitUntil(timeout: Constants.timeout) { done in
-                        sut.searchArtist(name: Constants.artistName) { response in
-                            expect(response.value).toNot(beEmpty())
+                        sut.searchArtist(name: Constants.artistName) { result in
+                            expect(result.value).toNot(beEmpty())
                             done()
                         }
                     }
@@ -40,8 +40,8 @@ final class APIManagerTests: QuickSpec {
             context("Top albums") {
                 it("should successfully return non-empty collection of album entities") {
                     waitUntil(timeout: Constants.timeout) { done in
-                        sut.topAlbums(artistId: Constants.artistId) { response in
-                            expect(response.value).toNot(beEmpty())
+                        sut.topAlbums(artistId: Constants.artistId) { result in
+                            expect(result.value).toNot(beEmpty())
                             done()
                         }
                     }
@@ -51,8 +51,8 @@ final class APIManagerTests: QuickSpec {
             context("Album info") {
                 it("should successfully retrieve the album info") {
                     waitUntil(timeout: Constants.timeout) { done in
-                        sut.albumInfo(albumId: Constants.albumId) { response in
-                            expect(response.value).toNot(beNil())
+                        sut.albumInfo(albumId: Constants.albumId) { result in
+                            expect(result.value).toNot(beNil())
                             done()
                         }
                     }

@@ -10,7 +10,7 @@ import Foundation
 
 extension Sequence where Iterator.Element == Image {
     
-    func image(size: Image.Size) -> URL? {
+    func imageURL(size: Image.Size) -> URL? {
         return filter { $0.size == size }
             .compactMap { URL(string: $0.url) }
             .first
