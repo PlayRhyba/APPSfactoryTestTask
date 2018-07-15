@@ -15,7 +15,7 @@ final class HomeViewController: BaseViewController {
         static let horizontalSpacing: CGFloat = 25
         static let cellHeightRatio: CGFloat = 1.27
         static let topSectionSpacing: CGFloat = 26
-        static let bottomSectionSpacing: CGFloat = 9
+        static let bottomSectionSpacing: CGFloat = 26
         static let lineSpacing: CGFloat = 20
         
     }
@@ -103,7 +103,7 @@ private extension HomeViewController {
     }
     
     func configureAppearance() {
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_home")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_light")!)
     }
     
 }

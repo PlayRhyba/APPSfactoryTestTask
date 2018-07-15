@@ -6,9 +6,28 @@
 //  Copyright © 2018 Alexander Snegursky. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol SearchPresenterProtocol: ScreenPresenterProtocol {
+    
+    /// Perform search by query
+    ///
+    /// - Parameter query: query
+    func search(query: String)
+    
+    /// Get number of found artists
+    ///
+    /// - Returns: number of found artists
+    func numberOfArtists() -> Int
+    
+    /// Get cell presenter at index path
+    ///
+    /// - Parameter indexPath: index path
+    /// - Returns: cell presenter
+    func cellPresenter(at indexPath: IndexPath) -> SearchCellPresenterProtocol?
+    
+    /// Clear the last search results
+    func clear()
     
 }
 
@@ -16,6 +35,9 @@ protocol SearchViewProtocol: ScreenViewProtocol {
     
     /// Reload view's content
     func reloadData()
+    
+    /// Dissmiss search controller
+    func endSearch()
     
 }
 
@@ -31,8 +53,11 @@ protocol SearchCellViewProtocol: ViewProtocol {
     /// Update cell's contents
     ///
     /// - Parameters:
-    ///   - artist: artist
-    ///   - imageURL: image url
-    func update(artist: String?, imageURL: URL?)
+    ///   - payload: text payload
+    ///   - imageURL: image URL
+    ///   - placeholder: placeholder image
+    func update(payload: NSAttributedString?,
+                imageURL: URL?,
+                placeholder: UIImage?)
     
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7FA0EA84E517F24E796A3CFC /* Pods_APPSfactoryTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C56BC2D7224364278909E4A /* Pods_APPSfactoryTestTask.framework */; };
 		8972BD25BB0FCFF33A2729ED /* Pods_APPSfactoryTestTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019D52FE60B46EEA33CCE483 /* Pods_APPSfactoryTestTaskTests.framework */; };
+		E37E87E520FAC6F8006ADA1D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37E87E420FAC6F8006ADA1D /* UIColor+Hex.swift */; };
 		E3A0925B20F7D7900005C88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0925A20F7D7900005C88E /* AppDelegate.swift */; };
 		E3A0926020F7D7900005C88E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A0925E20F7D7900005C88E /* Main.storyboard */; };
 		E3A0926220F7D7930005C88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3A0926120F7D7930005C88E /* Assets.xcassets */; };
@@ -45,6 +46,9 @@
 		E3A2569720FA76410019BBA5 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2569620FA76410019BBA5 /* SearchPresenter.swift */; };
 		E3A2569920FA7DAF0019BBA5 /* NetworkingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2569820FA7DAF0019BBA5 /* NetworkingAssembly.swift */; };
 		E3A2569B20FA7EC50019BBA5 /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2569A20FA7EC50019BBA5 /* SearchAssembly.swift */; };
+		E3A2569D20FAAAAD0019BBA5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2569C20FAAAAD0019BBA5 /* SearchCell.swift */; };
+		E3A2569F20FAAABE0019BBA5 /* SearchCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2569E20FAAABE0019BBA5 /* SearchCellPresenter.swift */; };
+		E3A256A120FAACAE0019BBA5 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A256A020FAACAE0019BBA5 /* BaseTableViewCell.swift */; };
 		E3A99B8A20F8F6BE004C2EBD /* TopAlbums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99B8920F8F6BE004C2EBD /* TopAlbums.swift */; };
 		E3A99B8C20F8F7D2004C2EBD /* TopAlbumsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99B8B20F8F7D2004C2EBD /* TopAlbumsRequest.swift */; };
 		E3A99B8E20F91734004C2EBD /* AlbumInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99B8D20F91734004C2EBD /* AlbumInfoRequest.swift */; };
@@ -75,6 +79,7 @@
 		730441A2E3F7A484787EF84E /* Pods-APPSfactoryTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APPSfactoryTestTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-APPSfactoryTestTask/Pods-APPSfactoryTestTask.release.xcconfig"; sourceTree = "<group>"; };
 		77941A1C1148C15F6DE07959 /* Pods-APPSfactoryTestTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APPSfactoryTestTaskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APPSfactoryTestTaskTests/Pods-APPSfactoryTestTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C56BC2D7224364278909E4A /* Pods_APPSfactoryTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APPSfactoryTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E37E87E420FAC6F8006ADA1D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		E3A0925720F7D7900005C88E /* APPSfactoryTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APPSfactoryTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0925A20F7D7900005C88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A0925F20F7D7900005C88E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +120,9 @@
 		E3A2569620FA76410019BBA5 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		E3A2569820FA7DAF0019BBA5 /* NetworkingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAssembly.swift; sourceTree = "<group>"; };
 		E3A2569A20FA7EC50019BBA5 /* SearchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssembly.swift; sourceTree = "<group>"; };
+		E3A2569C20FAAAAD0019BBA5 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		E3A2569E20FAAABE0019BBA5 /* SearchCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellPresenter.swift; sourceTree = "<group>"; };
+		E3A256A020FAACAE0019BBA5 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		E3A99B8920F8F6BE004C2EBD /* TopAlbums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbums.swift; sourceTree = "<group>"; };
 		E3A99B8B20F8F7D2004C2EBD /* TopAlbumsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumsRequest.swift; sourceTree = "<group>"; };
 		E3A99B8D20F91734004C2EBD /* AlbumInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfoRequest.swift; sourceTree = "<group>"; };
@@ -312,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				E3A11CFE20F80CBA0065EC3A /* Sequence+ImageSize.swift */,
+				E37E87E420FAC6F8006ADA1D /* UIColor+Hex.swift */,
 				E3A99BAA20F94AC7004C2EBD /* NSManagedObject+Extensions.swift */,
 				E3A99BB120F97FF7004C2EBD /* NSSortDescriptor+Albums.swift */,
 			);
@@ -334,6 +343,7 @@
 			children = (
 				E3A2566E20F9FCFB0019BBA5 /* BaseViewController.swift */,
 				E3A2567F20FA35510019BBA5 /* BaseCollectionViewCell.swift */,
+				E3A256A020FAACAE0019BBA5 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -382,6 +392,8 @@
 		E3A2569120FA76130019BBA5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E3A2569C20FAAAAD0019BBA5 /* SearchCell.swift */,
+				E3A2569E20FAAABE0019BBA5 /* SearchCellPresenter.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -611,6 +623,7 @@
 				E3A99B8E20F91734004C2EBD /* AlbumInfoRequest.swift in Sources */,
 				E3A2568720FA36BD0019BBA5 /* DependencyManager.swift in Sources */,
 				E3A99BB220F97FF7004C2EBD /* NSSortDescriptor+Albums.swift in Sources */,
+				E3A256A120FAACAE0019BBA5 /* BaseTableViewCell.swift in Sources */,
 				E3A11CE320F7F9160065EC3A /* RequesterProtocol.swift in Sources */,
 				E3A99B9820F938C7004C2EBD /* AlbumStorage.xcdatamodeld in Sources */,
 				E3A2569B20FA7EC50019BBA5 /* SearchAssembly.swift in Sources */,
@@ -626,15 +639,18 @@
 				E3A2566820F9F4410019BBA5 /* Presenter.swift in Sources */,
 				E3A2568820FA36BD0019BBA5 /* HomeAssembly.swift in Sources */,
 				E3A2568020FA35510019BBA5 /* BaseCollectionViewCell.swift in Sources */,
+				E3A2569D20FAAAAD0019BBA5 /* SearchCell.swift in Sources */,
 				E3A2568920FA36BD0019BBA5 /* StorageAssembly.swift in Sources */,
 				E3A11CEB20F7FD790065EC3A /* OperationError.swift in Sources */,
 				E3A2568D20FA37370019BBA5 /* HomeCell.swift in Sources */,
 				E3A2568F20FA4A050019BBA5 /* ScreenView.swift in Sources */,
 				E3A99B8A20F8F6BE004C2EBD /* TopAlbums.swift in Sources */,
 				E3A11D0320F815F50065EC3A /* SearchArtistRequest.swift in Sources */,
+				E37E87E520FAC6F8006ADA1D /* UIColor+Hex.swift in Sources */,
 				E3A2569720FA76410019BBA5 /* SearchPresenter.swift in Sources */,
 				E3A2566A20F9F44D0019BBA5 /* View.swift in Sources */,
 				E3A99BAB20F94AC7004C2EBD /* NSManagedObject+Extensions.swift in Sources */,
+				E3A2569F20FAAABE0019BBA5 /* SearchCellPresenter.swift in Sources */,
 				E3A99B8C20F8F7D2004C2EBD /* TopAlbumsRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

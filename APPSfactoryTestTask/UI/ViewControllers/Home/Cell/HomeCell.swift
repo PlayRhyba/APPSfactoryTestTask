@@ -18,8 +18,8 @@ final class HomeCell: BaseCollectionViewCell {
     
     // MARK: Lifecycle
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         configureAppearance()
     }
     
