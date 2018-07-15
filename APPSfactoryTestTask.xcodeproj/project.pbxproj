@@ -17,6 +17,9 @@
 		E392503720FB531000367DAC /* AlbumsCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503620FB531000367DAC /* AlbumsCellPresenter.swift */; };
 		E392503920FB769600367DAC /* NSPredicate+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503820FB769600367DAC /* NSPredicate+Search.swift */; };
 		E392503B20FB815E00367DAC /* AlbumsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503A20FB815E00367DAC /* AlbumsAssembly.swift */; };
+		E392503E20FBB01200367DAC /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503D20FBB01200367DAC /* DetailsPresenter.swift */; };
+		E392504020FBB03200367DAC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503F20FBB03200367DAC /* DetailsViewController.swift */; };
+		E392504220FBB04600367DAC /* DetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392504120FBB04600367DAC /* DetailsProtocols.swift */; };
 		E3A0925B20F7D7900005C88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0925A20F7D7900005C88E /* AppDelegate.swift */; };
 		E3A0926020F7D7900005C88E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A0925E20F7D7900005C88E /* Main.storyboard */; };
 		E3A0926220F7D7930005C88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3A0926120F7D7930005C88E /* Assets.xcassets */; };
@@ -94,6 +97,9 @@
 		E392503620FB531000367DAC /* AlbumsCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCellPresenter.swift; sourceTree = "<group>"; };
 		E392503820FB769600367DAC /* NSPredicate+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Search.swift"; sourceTree = "<group>"; };
 		E392503A20FB815E00367DAC /* AlbumsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsAssembly.swift; sourceTree = "<group>"; };
+		E392503D20FBB01200367DAC /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		E392503F20FBB03200367DAC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		E392504120FBB04600367DAC /* DetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
 		E3A0925720F7D7900005C88E /* APPSfactoryTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APPSfactoryTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0925A20F7D7900005C88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A0925F20F7D7900005C88E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -211,6 +217,17 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		E392503C20FBAFFA00367DAC /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				E392504120FBB04600367DAC /* DetailsProtocols.swift */,
+				E392503F20FBB03200367DAC /* DetailsViewController.swift */,
+				E392503D20FBB01200367DAC /* DetailsPresenter.swift */,
+			);
+			name = Details;
+			path = ViewControllers/Details;
+			sourceTree = "<group>";
+		};
 		E3A0924E20F7D7900005C88E = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +308,7 @@
 				E3A11CDE20F7F8CD0065EC3A /* ViewControllers */,
 				E3A2569020FA75F00019BBA5 /* Search */,
 				E392502C20FB529B00367DAC /* Albums */,
+				E392503C20FBAFFA00367DAC /* Details */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -649,6 +667,7 @@
 				E3A11CFB20F808B80065EC3A /* Image.swift in Sources */,
 				E3A11CFF20F80CBA0065EC3A /* Sequence+ImageSize.swift in Sources */,
 				E3A11D0120F812590065EC3A /* ArtistSearch.swift in Sources */,
+				E392503E20FBB01200367DAC /* DetailsPresenter.swift in Sources */,
 				E3A2569520FA76350019BBA5 /* SearchViewController.swift in Sources */,
 				E3A0925B20F7D7900005C88E /* AppDelegate.swift in Sources */,
 				E392503120FB52D900367DAC /* AlbumsViewController.swift in Sources */,
@@ -673,6 +692,7 @@
 				E3A11CF420F805BB0065EC3A /* GlobalConstants.swift in Sources */,
 				E3A11CE520F7F9260065EC3A /* Requester.swift in Sources */,
 				E3A2569320FA76260019BBA5 /* SearchProtocols.swift in Sources */,
+				E392504020FBB03200367DAC /* DetailsViewController.swift in Sources */,
 				E3A99B9320F9374D004C2EBD /* AlbumStorageProtocol.swift in Sources */,
 				E3A2566C20F9FB9E0019BBA5 /* ScreenPresenter.swift in Sources */,
 				E3A11CE920F7FC280065EC3A /* OperationResult.swift in Sources */,
@@ -696,6 +716,7 @@
 				E3A2566A20F9F44D0019BBA5 /* View.swift in Sources */,
 				E3A99BAB20F94AC7004C2EBD /* NSManagedObject+Extensions.swift in Sources */,
 				E3A2569F20FAAABE0019BBA5 /* SearchCellPresenter.swift in Sources */,
+				E392504220FBB04600367DAC /* DetailsProtocols.swift in Sources */,
 				E3A99B8C20F8F7D2004C2EBD /* TopAlbumsRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

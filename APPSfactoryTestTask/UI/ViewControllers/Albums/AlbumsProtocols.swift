@@ -11,7 +11,7 @@ import UIKit
 protocol AlbumsPresenterProtocol: ScreenPresenterProtocol {
     
     /// Artist
-    var artist: ArtistSearch.Artist? { get }
+    var artist: ArtistSearch.Artist? { get set }
     
     /// Fetch albums
     func fetchAlbums()
