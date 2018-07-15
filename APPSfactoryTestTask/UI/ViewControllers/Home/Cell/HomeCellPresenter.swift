@@ -20,7 +20,9 @@ final class HomeCellPresenter: Presenter, HomeCellPresenterProtocol {
     
     // MARK: Presenter
     
-    override func onViewAttached() {
+    override func viewDidAttach() {
+        super.viewDidAttach()
+        
         getView()?.update(title: album.title,
                           artist: album.artist,
                           imageURL: URL(string: album.imageURL ?? ""))

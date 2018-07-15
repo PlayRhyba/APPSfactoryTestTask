@@ -10,6 +10,13 @@
 		7FA0EA84E517F24E796A3CFC /* Pods_APPSfactoryTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C56BC2D7224364278909E4A /* Pods_APPSfactoryTestTask.framework */; };
 		8972BD25BB0FCFF33A2729ED /* Pods_APPSfactoryTestTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019D52FE60B46EEA33CCE483 /* Pods_APPSfactoryTestTaskTests.framework */; };
 		E37E87E520FAC6F8006ADA1D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37E87E420FAC6F8006ADA1D /* UIColor+Hex.swift */; };
+		E392502F20FB52C900367DAC /* AlbumsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392502E20FB52C900367DAC /* AlbumsProtocols.swift */; };
+		E392503120FB52D900367DAC /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503020FB52D900367DAC /* AlbumsViewController.swift */; };
+		E392503320FB52EA00367DAC /* AlbumsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503220FB52EA00367DAC /* AlbumsPresenter.swift */; };
+		E392503520FB530300367DAC /* AlbumsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503420FB530300367DAC /* AlbumsCell.swift */; };
+		E392503720FB531000367DAC /* AlbumsCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503620FB531000367DAC /* AlbumsCellPresenter.swift */; };
+		E392503920FB769600367DAC /* NSPredicate+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503820FB769600367DAC /* NSPredicate+Search.swift */; };
+		E392503B20FB815E00367DAC /* AlbumsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503A20FB815E00367DAC /* AlbumsAssembly.swift */; };
 		E3A0925B20F7D7900005C88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0925A20F7D7900005C88E /* AppDelegate.swift */; };
 		E3A0926020F7D7900005C88E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A0925E20F7D7900005C88E /* Main.storyboard */; };
 		E3A0926220F7D7930005C88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3A0926120F7D7930005C88E /* Assets.xcassets */; };
@@ -80,6 +87,13 @@
 		77941A1C1148C15F6DE07959 /* Pods-APPSfactoryTestTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APPSfactoryTestTaskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APPSfactoryTestTaskTests/Pods-APPSfactoryTestTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C56BC2D7224364278909E4A /* Pods_APPSfactoryTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APPSfactoryTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37E87E420FAC6F8006ADA1D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		E392502E20FB52C900367DAC /* AlbumsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsProtocols.swift; sourceTree = "<group>"; };
+		E392503020FB52D900367DAC /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		E392503220FB52EA00367DAC /* AlbumsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsPresenter.swift; sourceTree = "<group>"; };
+		E392503420FB530300367DAC /* AlbumsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCell.swift; sourceTree = "<group>"; };
+		E392503620FB531000367DAC /* AlbumsCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCellPresenter.swift; sourceTree = "<group>"; };
+		E392503820FB769600367DAC /* NSPredicate+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Search.swift"; sourceTree = "<group>"; };
+		E392503A20FB815E00367DAC /* AlbumsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsAssembly.swift; sourceTree = "<group>"; };
 		E3A0925720F7D7900005C88E /* APPSfactoryTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APPSfactoryTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0925A20F7D7900005C88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A0925F20F7D7900005C88E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +190,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E392502C20FB529B00367DAC /* Albums */ = {
+			isa = PBXGroup;
+			children = (
+				E392502D20FB529B00367DAC /* Cell */,
+				E392502E20FB52C900367DAC /* AlbumsProtocols.swift */,
+				E392503020FB52D900367DAC /* AlbumsViewController.swift */,
+				E392503220FB52EA00367DAC /* AlbumsPresenter.swift */,
+			);
+			name = Albums;
+			path = ViewControllers/Albums;
+			sourceTree = "<group>";
+		};
+		E392502D20FB529B00367DAC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E392503420FB530300367DAC /* AlbumsCell.swift */,
+				E392503620FB531000367DAC /* AlbumsCellPresenter.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		E3A0924E20F7D7900005C88E = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +290,7 @@
 				E3A2566D20F9FCD20019BBA5 /* Base */,
 				E3A11CDE20F7F8CD0065EC3A /* ViewControllers */,
 				E3A2569020FA75F00019BBA5 /* Search */,
+				E392502C20FB529B00367DAC /* Albums */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -323,6 +359,7 @@
 				E37E87E420FAC6F8006ADA1D /* UIColor+Hex.swift */,
 				E3A99BAA20F94AC7004C2EBD /* NSManagedObject+Extensions.swift */,
 				E3A99BB120F97FF7004C2EBD /* NSSortDescriptor+Albums.swift */,
+				E392503820FB769600367DAC /* NSPredicate+Search.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -373,6 +410,7 @@
 				E3A2569820FA7DAF0019BBA5 /* NetworkingAssembly.swift */,
 				E3A2568520FA36BD0019BBA5 /* HomeAssembly.swift */,
 				E3A2569A20FA7EC50019BBA5 /* SearchAssembly.swift */,
+				E392503A20FB815E00367DAC /* AlbumsAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -613,6 +651,7 @@
 				E3A11D0120F812590065EC3A /* ArtistSearch.swift in Sources */,
 				E3A2569520FA76350019BBA5 /* SearchViewController.swift in Sources */,
 				E3A0925B20F7D7900005C88E /* AppDelegate.swift in Sources */,
+				E392503120FB52D900367DAC /* AlbumsViewController.swift in Sources */,
 				E3A2566F20F9FCFB0019BBA5 /* BaseViewController.swift in Sources */,
 				E3A11CEF20F805530065EC3A /* APIManagerProtocol.swift in Sources */,
 				E3A2567120F9FE0C0019BBA5 /* HomePresenter.swift in Sources */,
@@ -624,8 +663,11 @@
 				E3A2568720FA36BD0019BBA5 /* DependencyManager.swift in Sources */,
 				E3A99BB220F97FF7004C2EBD /* NSSortDescriptor+Albums.swift in Sources */,
 				E3A256A120FAACAE0019BBA5 /* BaseTableViewCell.swift in Sources */,
+				E392503520FB530300367DAC /* AlbumsCell.swift in Sources */,
 				E3A11CE320F7F9160065EC3A /* RequesterProtocol.swift in Sources */,
 				E3A99B9820F938C7004C2EBD /* AlbumStorage.xcdatamodeld in Sources */,
+				E392503720FB531000367DAC /* AlbumsCellPresenter.swift in Sources */,
+				E392503920FB769600367DAC /* NSPredicate+Search.swift in Sources */,
 				E3A2569B20FA7EC50019BBA5 /* SearchAssembly.swift in Sources */,
 				E3A99B9020F91A18004C2EBD /* AlbumInfo.swift in Sources */,
 				E3A11CF420F805BB0065EC3A /* GlobalConstants.swift in Sources */,
@@ -634,12 +676,15 @@
 				E3A99B9320F9374D004C2EBD /* AlbumStorageProtocol.swift in Sources */,
 				E3A2566C20F9FB9E0019BBA5 /* ScreenPresenter.swift in Sources */,
 				E3A11CE920F7FC280065EC3A /* OperationResult.swift in Sources */,
+				E392503320FB52EA00367DAC /* AlbumsPresenter.swift in Sources */,
+				E392502F20FB52C900367DAC /* AlbumsProtocols.swift in Sources */,
 				E3A11CE120F7F8CD0065EC3A /* HomeViewController.swift in Sources */,
 				E3A2568B20FA37180019BBA5 /* HomeCellPresenter.swift in Sources */,
 				E3A2566820F9F4410019BBA5 /* Presenter.swift in Sources */,
 				E3A2568820FA36BD0019BBA5 /* HomeAssembly.swift in Sources */,
 				E3A2568020FA35510019BBA5 /* BaseCollectionViewCell.swift in Sources */,
 				E3A2569D20FAAAAD0019BBA5 /* SearchCell.swift in Sources */,
+				E392503B20FB815E00367DAC /* AlbumsAssembly.swift in Sources */,
 				E3A2568920FA36BD0019BBA5 /* StorageAssembly.swift in Sources */,
 				E3A11CEB20F7FD790065EC3A /* OperationError.swift in Sources */,
 				E3A2568D20FA37370019BBA5 /* HomeCell.swift in Sources */,

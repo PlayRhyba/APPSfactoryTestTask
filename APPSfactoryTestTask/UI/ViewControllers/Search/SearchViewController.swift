@@ -12,7 +12,9 @@ final class SearchViewController: BaseViewController {
     
     private struct LayoutConstants {
         
-        static let cellHeight: CGFloat = 50
+        static let cellHeight: CGFloat = 77
+        static let contentTopInset: CGFloat = 10
+        static let contentBottomInset: CGFloat = 10
         
     }
     
@@ -49,7 +51,7 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchCell.identifier, for: indexPath)
         (cell as? SearchCell)?.presenter = getPresenter()?.cellPresenter(at: indexPath)
         
         return cell
@@ -63,6 +65,18 @@ extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return LayoutConstants.cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        getPresenter()?.selectCell(at: indexPath)
     }
     
 }
@@ -92,6 +106,17 @@ extension SearchViewController: SearchViewProtocol {
         searchController.dismiss(animated: true, completion: nil)
     }
     
+    func showAlbums(artist: ArtistSearch.Artist) {
+        let identifier = AlbumsViewController.identifier
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: identifier) as? AlbumsViewController else {
+            return
+        }
+        
+        (vc.presenter as? AlbumsPresenter)?.artist = artist
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 // MARK: Private
@@ -104,17 +129,27 @@ private extension SearchViewController {
     
     func configureAppearance() {
         view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_dark")!)
+        tableView.indicatorStyle = .white
+        
+        tableView.contentInset = UIEdgeInsets(top: LayoutConstants.contentTopInset,
+                                              left: 0,
+                                              bottom: LayoutConstants.contentBottomInset,
+                                              right: 0)
     }
     
     func configureSearchController() {
         definesPresentationContext = true
+        
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.searchBar.searchBarStyle = UISearchBarStyle.minimal
+        
+        searchController.searchBar.searchBarStyle = UISearchBarStyle.minimal
         searchController.searchBar.placeholder = "Search Artists"
         searchController.searchBar.delegate = self
-        searchController.searchBar.barTintColor = UIColor(rgb: 0xf1f1f1)
-
+        searchController.searchBar.barTintColor = UIColor(hex: 0xF1F1F1)
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.black
+        
         navigationItem.titleView = self.searchController.searchBar
     }
     

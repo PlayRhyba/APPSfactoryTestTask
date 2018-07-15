@@ -10,8 +10,15 @@ struct TopAlbums: Decodable {
     
     struct Album: Decodable {
         
+        struct Artist: Decodable {
+            
+            let name: String
+            
+        }
+        
         let name: String
         let mbid: String?
+        let artist: Artist
         let image: [Image]?
         
     }
@@ -30,7 +37,8 @@ extension TopAlbums {
     
     var albums: [Album] {
         return topalbums.album
-            .filter { $0.mbid != nil }
+            .filter { $0.mbid?.isEmpty == false }
+            .sorted { $0.name < $1.name }
     }
     
 }

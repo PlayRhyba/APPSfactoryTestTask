@@ -10,8 +10,8 @@ import Foundation
 
 final class HomePresenter: ScreenPresenter {
     
-    let albumStorage: AlbumStorageProtocol
-    var cellPresenters: [HomeCellPresenterProtocol] = []
+    private let albumStorage: AlbumStorageProtocol
+    private var cellPresenters: [HomeCellPresenterProtocol] = []
     
     // MARK: Initialization
     

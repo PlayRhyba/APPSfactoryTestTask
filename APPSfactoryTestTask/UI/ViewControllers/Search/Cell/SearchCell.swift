@@ -11,8 +11,16 @@ import AlamofireImage
 
 final class SearchCell: BaseTableViewCell {
     
-    @IBOutlet weak var payloadLabel: UILabel!
-    @IBOutlet weak var albumImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var artistImage: UIImageView!
+    @IBOutlet weak var containerView: UIView!
+    
+    // MARK: Lifecycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configureAppearance()
+    }
     
 }
 
@@ -20,18 +28,31 @@ final class SearchCell: BaseTableViewCell {
 
 extension SearchCell: SearchCellViewProtocol {
     
-    func update(payload: NSAttributedString?,
-                imageURL: URL?,
-                placeholder: UIImage?) {
-        payloadLabel.attributedText = payload
+    func update(title: String?, imageURL: URL?) {
+        titleLabel.text = title
+        
+        let placeholder = UIImage(named: "ic_artist_placeholder")
         
         guard let imageURL = imageURL else {
-            albumImage.image = placeholder
+            artistImage.image = placeholder
             
             return
         }
         
-        albumImage.af_setImage(withURL: imageURL, placeholderImage: placeholder)
+        artistImage.af_setImage(withURL: imageURL, placeholderImage: placeholder)
+    }
+    
+}
+
+// MARK: Private
+
+private extension SearchCell {
+    
+    func configureAppearance() {
+        artistImage.layer.masksToBounds = true
+        artistImage.layer.cornerRadius = 3
+
+        containerView.layer.cornerRadius = 3
     }
     
 }

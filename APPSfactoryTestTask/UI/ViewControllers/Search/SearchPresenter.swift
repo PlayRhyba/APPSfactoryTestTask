@@ -10,8 +10,8 @@ import Foundation
 
 final class SearchPresenter: ScreenPresenter {
     
-    let apiManager: APIManagerProtocol
-    var cellPresenters: [SearchCellPresenterProtocol] = []
+    private let apiManager: APIManagerProtocol
+    private var cellPresenters: [SearchCellPresenterProtocol] = []
     
     // MARK: Initialization
     
@@ -33,7 +33,6 @@ final class SearchPresenter: ScreenPresenter {
 extension SearchPresenter: SearchPresenterProtocol {
     
     func search(query: String) {
-        
         getView()?.showHUD()
         
         apiManager.searchArtist(name: query) { [weak self] result in
@@ -60,6 +59,11 @@ extension SearchPresenter: SearchPresenterProtocol {
     
     func cellPresenter(at indexPath: IndexPath) -> SearchCellPresenterProtocol? {
         return cellPresenters[indexPath.row]
+    }
+    
+    func selectCell(at indexPath: IndexPath) {
+        let artist = cellPresenters[indexPath.row].artist
+        getView()?.showAlbums(artist: artist)
     }
     
     func clear() {

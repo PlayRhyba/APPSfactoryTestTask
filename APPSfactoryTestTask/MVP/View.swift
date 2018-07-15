@@ -8,15 +8,22 @@
 
 protocol ViewProtocol: class {
     
-    /// Identifier
+    /// Identifier (type level)
+    static var identifier: String { get }
+    
+    /// Identifier (instance level)
     var identifier: String { get }
     
 }
 
 extension ViewProtocol {
     
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
     var identifier: String {
-        return String(describing: type(of: self))
+        return type(of: self).identifier
     }
     
 }

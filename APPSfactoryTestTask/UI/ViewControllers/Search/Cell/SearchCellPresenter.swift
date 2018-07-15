@@ -20,13 +20,11 @@ final class SearchCellPresenter: Presenter, SearchCellPresenterProtocol {
     
     // MARK: Presenter
     
-    override func onViewAttached() {
-        let payload = NSAttributedString(string: artist.name,
-                                         attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13),
-                                                      NSAttributedStringKey.foregroundColor: UIColor.white])
-        getView()?.update(payload: payload,
-                          imageURL: artist.image.imageURL(size: .medium),
-                          placeholder: nil) //!!!
+    override func viewDidAttach() {
+        super.viewDidAttach()
+        
+        getView()?.update(title: artist.name,
+                          imageURL: artist.image.imageURL(size: .medium))
     }
     
 }

@@ -22,13 +22,13 @@ protocol PresenterProtocol: class {
     func attachView(_ view: ViewProtocol)
     
     ///  View has been attached
-    func onViewAttached()
+    func viewDidAttach()
     
     /// Detach view
     func detachView()
     
     ///  View has been detached
-    func onViewDetached()
+    func viewDidDetach()
     
 }
 
@@ -42,11 +42,11 @@ extension PresenterProtocol {
     
     func attachView(_ view: ViewProtocol) {}
     
-    func onViewAttached() {}
+    func viewDidAttach() {}
     
     func detachView() {}
     
-    func onViewDetached() {}
+    func viewDidDetach() {}
     
 }
 
@@ -66,16 +66,16 @@ class Presenter: PresenterProtocol {
     
     func attachView(_ view: ViewProtocol) {
         self.view = view
-        onViewAttached()
+        viewDidAttach()
     }
     
-    func onViewAttached() {}
+    func viewDidAttach() {}
     
     func detachView() {
         view = nil
-        onViewDetached()
+        viewDidDetach()
     }
     
-    func onViewDetached() {}
+    func viewDidDetach() {}
     
 }

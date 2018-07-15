@@ -50,7 +50,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCell.identifier, for: indexPath)
         (cell as? HomeCell)?.presenter = getPresenter()?.cellPresenter(at: indexPath)
         
         return cell
@@ -104,6 +104,7 @@ private extension HomeViewController {
     
     func configureAppearance() {
         view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_light")!)
+        collectionView.indicatorStyle = .white
     }
     
 }

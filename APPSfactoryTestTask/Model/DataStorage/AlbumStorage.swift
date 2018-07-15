@@ -28,9 +28,9 @@ final class AlbumStorage {
 extension AlbumStorage {
     
     func clear() {
-//        let context = persistentContainer.viewContext //!!!
-//        try? Album.deleteAll(inContext: context)
-//        save()
+        //        let context = persistentContainer.viewContext //!!!
+        //        try? Album.deleteAll(inContext: context)
+        //        save()
     }
     
     private func save() {
@@ -100,7 +100,7 @@ extension AlbumStorage: AlbumStorageProtocol {
     func remove(albumId: String,
                 completion: @escaping (OperationResult<Void, OperationError>) -> Void) {
         persistentContainer.performBackgroundTask { context in
-            Album.asyncFetch(configuration: { request in request.predicate = NSPredicate(format: "mbid ==[c] %@", albumId) },
+            Album.asyncFetch(configuration: { request in request.predicate = NSPredicate.mbidBasedSearchPredicate(mbid: albumId) },
                              in: context,
                              completion: { (result: OperationResult<[Album], OperationError>) in
                                 switch result {

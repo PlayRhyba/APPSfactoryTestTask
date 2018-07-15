@@ -17,7 +17,8 @@ final class DependencyManager {
         let assemblies: [Assembly] = [StorageAssembly(),
                                       NetworkingAssembly(),
                                       HomeAssembly(),
-                                      SearchAssembly()]
+                                      SearchAssembly(),
+                                      AlbumsAssembly()]
         
         _ = Assembler(assemblies, container: container)
         

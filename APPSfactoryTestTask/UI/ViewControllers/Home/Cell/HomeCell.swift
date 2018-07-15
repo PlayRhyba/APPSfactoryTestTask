@@ -33,7 +33,7 @@ extension HomeCell: HomeCellViewProtocol {
         titleLabel.text = title
         artistLabel.text = artist
         
-        let placeholder = UIImage(named: "ic_album_placeholder")
+        let placeholder = UIImage(named: "ic_home_album_placeholder")
         
         guard let imageURL = imageURL else {
             imageView.image = placeholder

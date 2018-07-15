@@ -36,7 +36,8 @@ extension ArtistSearch {
     
     var artists: [Artist] {
         return results.artistmatches.artist
-            .filter { $0.mbid != nil }
+            .filter { $0.mbid?.isEmpty == false }
+            .sorted { $0.name < $1.name }
     }
     
 }
