@@ -23,6 +23,8 @@ final class SearchPresenter: ScreenPresenter {
     
     override func viewWillDisappear() {
         super.viewWillDisappear()
+        
+        apiManager.cancel()
         getView()?.endSearch()
     }
     
@@ -47,7 +49,9 @@ extension SearchPresenter: SearchPresenterProtocol {
                 self.getView()?.reloadData()
                 
             case .failure(let error):
-                self.getView()?.show(errorMessage: error.localizedDescription)
+                if case OperationError.canceled = error {} else {
+                    self.getView()?.show(errorMessage: error.localizedDescription)
+                }
             }
         }
         

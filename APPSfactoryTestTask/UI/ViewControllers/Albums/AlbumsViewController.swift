@@ -80,10 +80,16 @@ extension AlbumsViewController: AlbumsViewProtocol {
         tableView.reloadData()
     }
     
-    func showAlbumInfo(albumId: String) { //!!!
+    func showAlbum(details: DetailsPresentable) {
+        let identifier = DetailsViewController.identifier
         
-        // TODO: Transition to album details
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: identifier) as? DetailsViewController else {
+            return
+        }
         
+        (vc.presenter as? DetailsPresenterProtocol)?.details = details
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

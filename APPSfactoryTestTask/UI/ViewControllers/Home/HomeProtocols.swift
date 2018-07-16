@@ -24,12 +24,22 @@ protocol HomePresenterProtocol: ScreenPresenterProtocol {
     /// - Returns: presenter for cell
     func cellPresenter(at indexPath: IndexPath) -> HomeCellPresenterProtocol?
     
+    /// Select cell at specific index path
+    ///
+    /// - Parameter indexPath: index path
+    func selectCell(at indexPath: IndexPath)
+    
 }
 
 protocol HomeViewProtocol: ScreenViewProtocol {
     
     /// Reload view's content
     func reloadData()
+    
+    /// Show album details screen
+    ///
+    /// - Parameter details: album details info
+    func showAlbum(details: DetailsPresentable)
     
 }
 

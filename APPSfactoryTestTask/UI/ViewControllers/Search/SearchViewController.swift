@@ -108,11 +108,12 @@ extension SearchViewController: SearchViewProtocol {
     
     func showAlbums(artist: ArtistSearch.Artist) {
         let identifier = AlbumsViewController.identifier
+        
         guard let vc = storyboard?.instantiateViewController(withIdentifier: identifier) as? AlbumsViewController else {
             return
         }
         
-        (vc.presenter as? AlbumsPresenter)?.artist = artist
+        (vc.presenter as? AlbumsPresenterProtocol)?.artist = artist
         
         navigationController?.pushViewController(vc, animated: true)
     }

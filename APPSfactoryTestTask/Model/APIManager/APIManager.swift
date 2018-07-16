@@ -67,4 +67,8 @@ extension APIManager: APIManagerProtocol {
         }
     }
     
+    func cancel() {
+        requester.cancel()
+    }
+    
 }

@@ -26,7 +26,6 @@ protocol ScreenViewProtocol: ViewProtocol {
 extension ScreenViewProtocol {
     
     func showHUD() {
-        SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.show()
     }
     

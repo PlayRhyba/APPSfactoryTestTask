@@ -26,9 +26,9 @@ protocol AlbumStorageProtocol {
     /// Add album to storage
     ///
     /// - Parameters:
-    ///   - album: album
+    ///   - album: album details
     ///   - completion: completion handler
-    func add(album: AlbumInfo.Album,
+    func add(album: DetailsPresentable,
              completion: @escaping (OperationResult<Album, OperationError>) -> Void)
     
     /// Remove album from storage

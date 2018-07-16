@@ -46,11 +46,11 @@ protocol AlbumsViewProtocol: ScreenViewProtocol {
     
     /// Reload view's content
     func reloadData()
-    
-//    /// Show selected album's details
-//    ///
-//    /// - Parameter albumId: musicbrainz of album
-//    func showAlbumInfo(albumId: String) //!!!
+
+    /// Show album details screen
+    ///
+    /// - Parameter details: album details info
+    func showAlbum(details: DetailsPresentable)
     
 }
 

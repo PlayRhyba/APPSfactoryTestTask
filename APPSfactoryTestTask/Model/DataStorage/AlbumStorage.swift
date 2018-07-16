@@ -28,9 +28,9 @@ final class AlbumStorage {
 extension AlbumStorage {
     
     func clear() {
-        //        let context = persistentContainer.viewContext //!!!
-        //        try? Album.deleteAll(inContext: context)
-        //        save()
+        let context = persistentContainer.viewContext
+        try? Album.deleteAll(inContext: context)
+        save()
     }
     
     private func save() {
@@ -64,26 +64,18 @@ extension AlbumStorage: AlbumStorageProtocol {
                          completion: completion)
     }
     
-    func add(album: AlbumInfo.Album,
+    func add(album: DetailsPresentable,
              completion: @escaping (OperationResult<Album, OperationError>) -> Void) {
         persistentContainer.performBackgroundTask { context in
             let storedAlbum = Album(context: context)
-            storedAlbum.mbid = album.mbid
-            storedAlbum.title = album.name
-            storedAlbum.artist = album.artist
+            storedAlbum.mbid = album.albumMbid
+            storedAlbum.title = album.albumTitle
+            storedAlbum.artist = album.albumArtist
+            storedAlbum.imageURL = album.albumImageURL?.absoluteString
             
-            let imageURL = [Image.Size.mega,
-                            .extralarge,
-                            .large,
-                            .medium]
-                .compactMap { album.image.imageURL(size: $0) }
-                .first
-            
-            storedAlbum.imageURL = imageURL?.absoluteString
-            
-            album.trackList.forEach { track in
+            album.albumTracks.forEach { track in
                 let storedTrack = Track(context: context)
-                storedTrack.title = track.name
+                storedTrack.title = track
                 
                 storedAlbum.addToTracks(storedTrack)
             }

@@ -11,6 +11,12 @@ import os.log
 
 final class Requester {
     
+    private struct ErrorCodes {
+        
+        static let canceledOperation = -999
+        
+    }
+    
     private let sessionManager: SessionManager
     private lazy var decoder = JSONDecoder()
     
@@ -43,6 +49,10 @@ extension Requester: RequesterProtocol {
                         os_log("DECODING ERROR: %@", error.localizedDescription)
                         completion(.failure(.decoding(error.localizedDescription)))
                     }
+                    
+                case .failure(let error) where (error as NSError).code == ErrorCodes.canceledOperation:
+                    os_log("OPERATION HAS BEEN CANCELED")
+                    completion(.failure(.canceled))
                     
                 case .failure(let error):
                     os_log("NETWORKING ERROR: %@", error.localizedDescription)

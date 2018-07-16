@@ -32,4 +32,7 @@ protocol APIManagerProtocol {
     func albumInfo(albumId: String,
                    completion: @escaping (OperationResult<AlbumInfo.Album, OperationError>) -> Void)
     
+    /// Cancel all requests
+    func cancel()
+    
 }

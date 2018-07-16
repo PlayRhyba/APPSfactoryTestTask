@@ -14,6 +14,7 @@ final class AlbumsPresenter: ScreenPresenter {
     private let apiManager: APIManagerProtocol
     private let albumStorage: AlbumStorageProtocol
     private var cellPresenters: [AlbumsCellPresenterProtocol] = []
+    private var storedAlbums: [Album] = []
     
     // MARK: Initialization
     
@@ -33,6 +34,11 @@ final class AlbumsPresenter: ScreenPresenter {
     override func viewWillAppear() {
         super.viewWillAppear()
         fetchAlbums()
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        apiManager.cancel()
     }
     
 }
@@ -63,7 +69,9 @@ extension AlbumsPresenter: AlbumsPresenterProtocol {
                 self.syncronizeWithStorage()
                 
             case .failure(let error):
-                self.getView()?.show(errorMessage: error.localizedDescription)
+                if case OperationError.canceled = error {} else {
+                    self.getView()?.show(errorMessage: error.localizedDescription)
+                }
             }
         }
     }
@@ -74,8 +82,10 @@ extension AlbumsPresenter: AlbumsPresenterProtocol {
             
             switch result {
             case .success(let storedAlbums):
+                self.storedAlbums = storedAlbums
+                
                 self.cellPresenters.forEach { presenter in
-                    presenter.isSaved = storedAlbums.contains { $0.mbid == presenter.album.mbid }
+                    presenter.isSaved = self.storedAlbums.contains { $0.mbid == presenter.album.mbid }
                 }
                 
                 self.getView()?.reloadData()
@@ -95,7 +105,15 @@ extension AlbumsPresenter: AlbumsPresenterProtocol {
     }
     
     func selectCell(at indexPath: IndexPath) {
+        let cellPresenter = cellPresenters[indexPath.row]
         
+        guard let albumId = cellPresenter.album.mbid else { return }
+        
+        if cellPresenter.isSaved {
+            showStoredAlbum(albumId: albumId)
+        } else {
+            showUnstoredAlbum(albumId: albumId)
+        }
     }
     
 }
@@ -106,6 +124,34 @@ private extension AlbumsPresenter {
     
     func getView() -> AlbumsViewProtocol? {
         return view as? AlbumsViewProtocol
+    }
+    
+    func showStoredAlbum(albumId: String) {
+        guard let album = storedAlbums.first (where: { $0.mbid == albumId }) else {
+            return
+        }
+        
+        getView()?.showAlbum(details: album)
+    }
+    
+    func showUnstoredAlbum(albumId: String) {
+        getView()?.showHUD()
+        
+        apiManager.albumInfo(albumId: albumId) { [weak self] result in
+            guard let `self` = self else { return }
+            
+            self.getView()?.dismissHUD()
+            
+            switch result {
+            case .success(let album):
+                self.getView()?.showAlbum(details: album)
+                
+            case .failure(let error):
+                if case OperationError.canceled = error {} else {
+                    self.getView()?.show(errorMessage: error.localizedDescription)
+                }
+            }
+        }
     }
     
 }

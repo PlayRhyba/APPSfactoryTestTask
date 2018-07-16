@@ -11,10 +11,12 @@
 /// - decoding: decoding error
 /// - alamofire: alamofire error
 /// - database: database error
+//  - canceled: operation was canceled
 enum OperationError: Error {
     
     case decoding(String)
     case networking(String)
     case database(String)
+    case canceled
     
 }

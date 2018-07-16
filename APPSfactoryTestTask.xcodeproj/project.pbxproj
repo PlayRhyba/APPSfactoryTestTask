@@ -70,6 +70,8 @@
 		E3A99BAD20F963B4004C2EBD /* AlbumStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99BAC20F963B4004C2EBD /* AlbumStorageTests.swift */; };
 		E3A99BB020F96887004C2EBD /* AlbumInfoTestsData.json in Resources */ = {isa = PBXBuildFile; fileRef = E3A99BAF20F96887004C2EBD /* AlbumInfoTestsData.json */; };
 		E3A99BB220F97FF7004C2EBD /* NSSortDescriptor+Albums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A99BB120F97FF7004C2EBD /* NSSortDescriptor+Albums.swift */; };
+		E3A9DA4B20FCE69A007403DF /* DetailsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A9DA4A20FCE69A007403DF /* DetailsAssembly.swift */; };
+		E3A9DA4D20FCED54007403DF /* DetailsPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A9DA4C20FCED54007403DF /* DetailsPresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,8 @@
 		E3A99BAC20F963B4004C2EBD /* AlbumStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumStorageTests.swift; sourceTree = "<group>"; };
 		E3A99BAF20F96887004C2EBD /* AlbumInfoTestsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AlbumInfoTestsData.json; sourceTree = "<group>"; };
 		E3A99BB120F97FF7004C2EBD /* NSSortDescriptor+Albums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Albums.swift"; sourceTree = "<group>"; };
+		E3A9DA4A20FCE69A007403DF /* DetailsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAssembly.swift; sourceTree = "<group>"; };
+		E3A9DA4C20FCED54007403DF /* DetailsPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsPresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +284,7 @@
 		E3A11CDB20F7F8CD0065EC3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3A9DA4C20FCED54007403DF /* DetailsPresentable.swift */,
 				E3A11CEC20F804DD0065EC3A /* Requests */,
 				E3A11CF720F806AD0065EC3A /* DataObjects */,
 				E3A11CDC20F7F8CD0065EC3A /* Requester */,
@@ -429,6 +434,7 @@
 				E3A2568520FA36BD0019BBA5 /* HomeAssembly.swift */,
 				E3A2569A20FA7EC50019BBA5 /* SearchAssembly.swift */,
 				E392503A20FB815E00367DAC /* AlbumsAssembly.swift */,
+				E3A9DA4A20FCE69A007403DF /* DetailsAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -671,6 +677,7 @@
 				E3A2569520FA76350019BBA5 /* SearchViewController.swift in Sources */,
 				E3A0925B20F7D7900005C88E /* AppDelegate.swift in Sources */,
 				E392503120FB52D900367DAC /* AlbumsViewController.swift in Sources */,
+				E3A9DA4B20FCE69A007403DF /* DetailsAssembly.swift in Sources */,
 				E3A2566F20F9FCFB0019BBA5 /* BaseViewController.swift in Sources */,
 				E3A11CEF20F805530065EC3A /* APIManagerProtocol.swift in Sources */,
 				E3A2567120F9FE0C0019BBA5 /* HomePresenter.swift in Sources */,
@@ -695,6 +702,7 @@
 				E392504020FBB03200367DAC /* DetailsViewController.swift in Sources */,
 				E3A99B9320F9374D004C2EBD /* AlbumStorageProtocol.swift in Sources */,
 				E3A2566C20F9FB9E0019BBA5 /* ScreenPresenter.swift in Sources */,
+				E3A9DA4D20FCED54007403DF /* DetailsPresentable.swift in Sources */,
 				E3A11CE920F7FC280065EC3A /* OperationResult.swift in Sources */,
 				E392503320FB52EA00367DAC /* AlbumsPresenter.swift in Sources */,
 				E392502F20FB52C900367DAC /* AlbumsProtocols.swift in Sources */,

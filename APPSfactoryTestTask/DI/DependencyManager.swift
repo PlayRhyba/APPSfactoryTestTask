@@ -18,7 +18,8 @@ final class DependencyManager {
                                       NetworkingAssembly(),
                                       HomeAssembly(),
                                       SearchAssembly(),
-                                      AlbumsAssembly()]
+                                      AlbumsAssembly(),
+                                      DetailsAssembly()]
         
         _ = Assembler(assemblies, container: container)
         

@@ -14,7 +14,6 @@ final class HomeCell: BaseCollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var containerView: UIView!
     
     // MARK: Lifecycle
     
@@ -33,7 +32,7 @@ extension HomeCell: HomeCellViewProtocol {
         titleLabel.text = title
         artistLabel.text = artist
         
-        let placeholder = UIImage(named: "ic_home_album_placeholder")
+        let placeholder = UIImage(named: "ic_details_album_placeholder")
         
         guard let imageURL = imageURL else {
             imageView.image = placeholder
@@ -53,10 +52,6 @@ private extension HomeCell {
     func configureAppearance() {
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 5
-        
-        containerView.layer.cornerRadius = 5
-        containerView.layer.borderWidth = 2.0
-        containerView.layer.borderColor = UIColor(white: 1.0, alpha: 0.2).cgColor
     }
     
 }

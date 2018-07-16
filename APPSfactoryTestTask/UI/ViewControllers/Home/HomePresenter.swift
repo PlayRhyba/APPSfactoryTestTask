@@ -55,6 +55,11 @@ extension HomePresenter: HomePresenterProtocol {
         return cellPresenters[indexPath.row]
     }
     
+    func selectCell(at indexPath: IndexPath) {
+        let album = cellPresenters[indexPath.row].album
+        getView()?.showAlbum(details: album)
+    }
+    
 }
 
 // MARK: Private

@@ -13,7 +13,7 @@ final class HomeViewController: BaseViewController {
     private struct LayoutConstants {
         
         static let horizontalSpacing: CGFloat = 25
-        static let cellHeightRatio: CGFloat = 1.27
+        static let cellHeightRatio: CGFloat = 1.3
         static let topSectionSpacing: CGFloat = 26
         static let bottomSectionSpacing: CGFloat = 26
         static let lineSpacing: CGFloat = 20
@@ -39,6 +39,18 @@ extension HomeViewController: HomeViewProtocol {
         collectionView.reloadData()
     }
     
+    func showAlbum(details: DetailsPresentable) {
+        let identifier = DetailsViewController.identifier
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: identifier) as? DetailsViewController else {
+            return
+        }
+        
+        (vc.presenter as? DetailsPresenterProtocol)?.details = details
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 //MARK: UICollectionViewDataSource
@@ -54,6 +66,14 @@ extension HomeViewController: UICollectionViewDataSource {
         (cell as? HomeCell)?.presenter = getPresenter()?.cellPresenter(at: indexPath)
         
         return cell
+    }
+    
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        getPresenter()?.selectCell(at: indexPath)
     }
     
 }
