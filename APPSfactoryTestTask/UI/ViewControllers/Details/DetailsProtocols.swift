@@ -26,17 +26,25 @@ protocol DetailsViewProtocol: ScreenViewProtocol {
     /// Update view controller's title
     ///
     /// - Parameter title: title
-    func updateTitle(title: String?)
+    func update(title: String?)
     
     /// Update album image
     ///
     /// - Parameter imageURL: image URL
-    func updateAlbumImage(imageURL: URL?)
+    func update(imageURL: URL?)
+    
+    /// Update album info
+    ///
+    /// - Parameter info: album's description
+    func update(info: NSAttributedString?)
     
     /// Adjust UI to saved album state
     func adjustToSavedAlbum()
     
     /// Adjust UI to removed album state
     func adjustToRemovedAlbum()
+    
+    /// Transition back to previous screen
+    func back()
     
 }

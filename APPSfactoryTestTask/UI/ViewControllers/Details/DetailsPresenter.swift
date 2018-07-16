@@ -6,6 +6,8 @@
 //  Copyright © 2018 Alexander Snegursky. All rights reserved.
 //
 
+import UIKit
+
 final class DetailsPresenter: ScreenPresenter {
     
     var details: DetailsPresentable?
@@ -22,8 +24,9 @@ final class DetailsPresenter: ScreenPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getView()?.updateTitle(title: details?.albumTitle)
-        getView()?.updateAlbumImage(imageURL: details?.albumImageURL)
+        getView()?.update(title: details?.albumTitle)
+        getView()?.update(imageURL: details?.albumImageURL)
+        getView()?.update(info: albumInfo)
     }
     
     override func viewWillAppear() {
@@ -42,12 +45,14 @@ extension DetailsPresenter: DetailsPresenterProtocol {
         albumStorage.add(album: details) { [weak self] result in
             guard let `self` = self else { return }
             
-            switch result {
-            case .success:
-                self.getView()?.adjustToSavedAlbum()
-                
-            case .failure(let error):
-                self.getView()?.show(errorMessage: error.localizedDescription)
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self.getView()?.adjustToSavedAlbum()
+                    
+                case .failure(let error):
+                    self.getView()?.show(errorMessage: error.localizedDescription)
+                }
             }
         }
     }
@@ -58,12 +63,14 @@ extension DetailsPresenter: DetailsPresenterProtocol {
         albumStorage.remove(albumId: albumId) { [weak self] result in
             guard let `self` = self else { return }
             
-            switch result {
-            case .success:
-                self.getView()?.adjustToRemovedAlbum()
-                
-            case .failure(let error):
-                self.getView()?.show(errorMessage: error.localizedDescription)
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self.getView()?.back()
+                    
+                case .failure(let error):
+                    self.getView()?.show(errorMessage: error.localizedDescription)
+                }
             }
         }
     }
@@ -73,6 +80,39 @@ extension DetailsPresenter: DetailsPresenterProtocol {
 // MARK: Private
 
 private extension DetailsPresenter {
+    
+    var albumInfo: NSAttributedString? {
+        let info = NSMutableAttributedString()
+        
+        let centerAlignmentParagraphStyle = NSMutableParagraphStyle()
+        centerAlignmentParagraphStyle.alignment = .center
+        
+        if let title = details?.albumTitle {
+            let titlePart = NSAttributedString(string: title + "\n",
+                                               attributes: [.font: UIFont.boldSystemFont(ofSize: 24),
+                                                            .foregroundColor: UIColor.white,
+                                                            .paragraphStyle: centerAlignmentParagraphStyle])
+            info.append(titlePart)
+        }
+        
+        if let artist = details?.albumArtist {
+            let artistPart = NSAttributedString(string: artist + "\n",
+                                                attributes: [.font: UIFont.systemFont(ofSize: 22),
+                                                             .foregroundColor: UIColor(hex: 0xFFC128),
+                                                             .paragraphStyle: centerAlignmentParagraphStyle])
+            info.append(artistPart)
+        }
+        
+        if let tracks = details?.albumTracks,
+            !tracks.isEmpty {
+            let tracksPart = NSAttributedString(string: "\n" + tracks.joined(separator: "\n"),
+                                                attributes: [.font: UIFont.systemFont(ofSize: 15),
+                                                             .foregroundColor: UIColor(white: 1, alpha: 0.75)])
+            info.append(tracksPart)
+        }
+        
+        return info
+    }
     
     func getView() -> DetailsViewProtocol? {
         return view as? DetailsViewProtocol

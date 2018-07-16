@@ -346,15 +346,28 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y0u-GY-lws">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Hx-Ma-eAY">
                                 <rect key="frame" x="57" y="101" width="261" height="261"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3Hx-Ma-eAY" secondAttribute="height" multiplier="1:1" id="g33-zT-VVW"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYX-1U-1OJ">
+                                <rect key="frame" x="59" y="384" width="257" height="252"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Y0u-GY-lws" firstAttribute="trailing" secondItem="yhf-qc-0us" secondAttribute="trailing" id="0d9-Fz-wGH"/>
+                            <constraint firstItem="Y0u-GY-lws" firstAttribute="bottom" secondItem="yhf-qc-0us" secondAttribute="bottom" id="0h5-D9-OS9"/>
+                            <constraint firstItem="Y0u-GY-lws" firstAttribute="leading" secondItem="yhf-qc-0us" secondAttribute="leading" id="6zN-mf-JYC"/>
                             <constraint firstItem="GlF-S4-fNs" firstAttribute="bottom" secondItem="yhf-qc-0us" secondAttribute="bottom" id="DVP-KX-KLS"/>
                             <constraint firstItem="GlF-S4-fNs" firstAttribute="trailing" secondItem="yhf-qc-0us" secondAttribute="trailing" id="GtL-kc-jaZ"/>
                             <constraint firstItem="yhf-qc-0us" firstAttribute="trailing" secondItem="3Hx-Ma-eAY" secondAttribute="trailing" constant="57" id="LiU-hA-q1N"/>
@@ -366,6 +379,7 @@
                             <constraint firstItem="7pk-yD-2R7" firstAttribute="top" secondItem="a7T-0k-o5C" secondAttribute="top" id="l1W-JW-Y09"/>
                             <constraint firstItem="3Hx-Ma-eAY" firstAttribute="leading" secondItem="yhf-qc-0us" secondAttribute="leading" constant="57" id="m2A-gq-doh"/>
                             <constraint firstItem="3Hx-Ma-eAY" firstAttribute="top" secondItem="a7T-0k-o5C" secondAttribute="top" constant="101" id="oW9-CF-zH2"/>
+                            <constraint firstItem="Y0u-GY-lws" firstAttribute="top" secondItem="a7T-0k-o5C" secondAttribute="top" id="zMw-jC-DCu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yhf-qc-0us"/>
                     </view>
@@ -373,6 +387,8 @@
                     <connections>
                         <outlet property="artistImage" destination="3Hx-Ma-eAY" id="whf-Z5-qmy"/>
                         <outlet property="backgroundImageView" destination="GlF-S4-fNs" id="ily-N1-ApZ"/>
+                        <outlet property="infoLabel" destination="bYX-1U-1OJ" id="ooa-jo-fyq"/>
+                        <outlet property="scrollView" destination="Y0u-GY-lws" id="6T2-16-ffT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LwJ-Wu-Dz6" userLabel="First Responder" sceneMemberID="firstResponder"/>

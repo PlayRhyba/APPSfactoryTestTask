@@ -19,6 +19,8 @@ final class DetailsViewController: BaseViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var artistImage: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var infoLabel: UILabel!
     
     // MARK: Lifecycle
     
@@ -33,11 +35,11 @@ final class DetailsViewController: BaseViewController {
 
 extension DetailsViewController: DetailsViewProtocol {
     
-    func updateTitle(title: String?) {
+    func update(title: String?) {
         self.title = title
     }
     
-    func updateAlbumImage(imageURL: URL?) {
+    func update(imageURL: URL?) {
         let placeholder = UIImage(named: "ic_details_album_placeholder")
         
         guard let imageURL = imageURL else {
@@ -51,28 +53,32 @@ extension DetailsViewController: DetailsViewProtocol {
         artistImage.af_setImage(withURL: imageURL, placeholderImage: placeholder)
     }
     
+    func update(info: NSAttributedString?) {
+        infoLabel.attributedText = info
+    }
+    
     func adjustToSavedAlbum() {
-        DispatchQueue.main.async {
-            let item = UIBarButtonItem(barButtonSystemItem: .trash,
-                                       target: self,
-                                       action: #selector(self.removeAlbum))
-            
-            item.tintColor = Constants.barButtonItemTintColor
-            
-            self.navigationItem.rightBarButtonItem = item
-        }
+        let item = UIBarButtonItem(barButtonSystemItem: .trash,
+                                   target: self,
+                                   action: #selector(self.removeAlbum))
+        
+        item.tintColor = Constants.barButtonItemTintColor
+        
+        self.navigationItem.rightBarButtonItem = item
     }
     
     func adjustToRemovedAlbum() {
-        DispatchQueue.main.async {
-            let item = UIBarButtonItem(barButtonSystemItem: .add,
-                                       target: self,
-                                       action: #selector(self.saveAlbum))
-            
-            item.tintColor = Constants.barButtonItemTintColor
-            
-            self.navigationItem.rightBarButtonItem = item
-        }
+        let item = UIBarButtonItem(barButtonSystemItem: .add,
+                                   target: self,
+                                   action: #selector(self.saveAlbum))
+        
+        item.tintColor = Constants.barButtonItemTintColor
+        
+        self.navigationItem.rightBarButtonItem = item
+    }
+    
+    func back() {
+        navigationController?.popViewController(animated: true)
     }
     
 }
@@ -100,7 +106,12 @@ private extension DetailsViewController {
     }
     
     func configureAppearance() {
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_dark")!)
+        let backgroundColor = UIColor(patternImage: UIImage(named: "bg_dark")!)
+        
+        view.backgroundColor = backgroundColor
+        
+        scrollView.backgroundColor = backgroundColor
+        scrollView.alpha = 0.5
         
         artistImage.layer.masksToBounds = true
         artistImage.layer.cornerRadius = 5
