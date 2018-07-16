@@ -21,6 +21,7 @@ final class HomeViewController: BaseViewController {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var placeholderLabel: UILabel!
     
     // MARK: Lifecycle
     
@@ -51,6 +52,9 @@ extension HomeViewController: HomeViewProtocol {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func updatePlaceholder(isHidden: Bool) {
+        placeholderLabel.isHidden = isHidden
+    }
 }
 
 //MARK: UICollectionViewDataSource

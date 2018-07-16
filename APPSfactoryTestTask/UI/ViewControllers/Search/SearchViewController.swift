@@ -130,6 +130,7 @@ private extension SearchViewController {
     
     func configureAppearance() {
         view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_dark")!)
+        
         tableView.indicatorStyle = .white
         
         tableView.contentInset = UIEdgeInsets(top: LayoutConstants.contentTopInset,

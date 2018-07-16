@@ -15,6 +15,7 @@ final class AlbumsCell: BaseTableViewCell {
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var storedAlbumImage: UIImageView!
     
     // MARK: Lifecycle
     
@@ -35,6 +36,7 @@ extension AlbumsCell: AlbumsCellViewProtocol {
                 isSaved: Bool) {
         titleLabel.text = title
         artistLabel.text = artist
+        storedAlbumImage.isHidden = !isSaved
         
         let placeholder = UIImage(named: "ic_albums_album_placeholder")
         
@@ -45,9 +47,6 @@ extension AlbumsCell: AlbumsCellViewProtocol {
         }
         
         albumImage.af_setImage(withURL: imageURL, placeholderImage: placeholder)
-        
-        // TODO: Mark as saved //!!!
-        
     }
     
 }

@@ -105,9 +105,18 @@ private extension DetailsPresenter {
         
         if let tracks = details?.albumTracks,
             !tracks.isEmpty {
-            let tracksPart = NSAttributedString(string: "\n" + tracks.joined(separator: "\n"),
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 5
+            
+            let numberedTracks = tracks
+                .enumerated()
+                .map { (index, track) in "\(index + 1). \(track)" }
+                .joined(separator: "\n")
+            
+            let tracksPart = NSAttributedString(string: "\n" + numberedTracks,
                                                 attributes: [.font: UIFont.systemFont(ofSize: 15),
-                                                             .foregroundColor: UIColor(white: 1, alpha: 0.75)])
+                                                             .foregroundColor: UIColor(white: 1, alpha: 0.75),
+                                                             .paragraphStyle: paragraphStyle])
             info.append(tracksPart)
         }
         

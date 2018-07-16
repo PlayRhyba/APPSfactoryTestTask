@@ -19,8 +19,9 @@ final class DetailsViewController: BaseViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var artistImage: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: Lifecycle
     
@@ -107,14 +108,16 @@ private extension DetailsViewController {
     
     func configureAppearance() {
         let backgroundColor = UIColor(patternImage: UIImage(named: "bg_dark")!)
-        
+    
         view.backgroundColor = backgroundColor
         
-        scrollView.backgroundColor = backgroundColor
-        scrollView.alpha = 0.5
+        overlayView.backgroundColor = backgroundColor
+        overlayView.alpha = 0.5
         
         artistImage.layer.masksToBounds = true
         artistImage.layer.cornerRadius = 5
+        
+        scrollView.indicatorStyle = .white
     }
     
 }

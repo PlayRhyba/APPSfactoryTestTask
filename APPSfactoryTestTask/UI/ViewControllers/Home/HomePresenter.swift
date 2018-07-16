@@ -40,6 +40,7 @@ extension HomePresenter: HomePresenterProtocol {
             case .success(let albums):
                 self.cellPresenters = albums.map { HomeCellPresenter(album: $0) }
                 self.getView()?.reloadData()
+                self.getView()?.updatePlaceholder(isHidden: !self.cellPresenters.isEmpty)
                 
             case .failure(let error):
                 self.getView()?.show(errorMessage: error.localizedDescription)

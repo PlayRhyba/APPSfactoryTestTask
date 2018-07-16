@@ -36,6 +36,11 @@ protocol HomeViewProtocol: ScreenViewProtocol {
     /// Reload view's content
     func reloadData()
     
+    /// Update placeholder
+    ///
+    /// - Parameter isHidden: placeholder hidden
+    func updatePlaceholder(isHidden: Bool)
+    
     /// Show album details screen
     ///
     /// - Parameter details: album details info

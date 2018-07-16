@@ -18,27 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APPSfactoryTestTask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKh-kg-SIJ">
-                                <rect key="frame" x="86" y="321" width="202" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="dDr-Hj-LQr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_light" translatesAutoresizingMaskIntoConstraints="NO" id="T52-LI-ceH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APPSfactoryTestTask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tKh-kg-SIJ">
+                                <rect key="frame" x="67" y="319" width="241" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tKh-kg-SIJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2k6-N7-aCz"/>
-                            <constraint firstItem="tKh-kg-SIJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Psf-5h-yU3"/>
+                            <constraint firstItem="T52-LI-ceH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8da-fI-LbX"/>
+                            <constraint firstItem="T52-LI-ceH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AJm-JO-I8C"/>
+                            <constraint firstItem="T52-LI-ceH" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="CIB-FU-so2"/>
+                            <constraint firstItem="tKh-kg-SIJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Z2w-P9-wWI"/>
+                            <constraint firstItem="T52-LI-ceH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eHX-7m-l7t"/>
+                            <constraint firstItem="tKh-kg-SIJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="htW-Nx-huU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg_light" width="5" height="667"/>
+    </resources>
 </document>
