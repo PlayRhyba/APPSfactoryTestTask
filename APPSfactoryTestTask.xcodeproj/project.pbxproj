@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7FA0EA84E517F24E796A3CFC /* Pods_APPSfactoryTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C56BC2D7224364278909E4A /* Pods_APPSfactoryTestTask.framework */; };
 		8972BD25BB0FCFF33A2729ED /* Pods_APPSfactoryTestTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019D52FE60B46EEA33CCE483 /* Pods_APPSfactoryTestTaskTests.framework */; };
+		E3787D6E20FF5BCE00110420 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3787D6D20FF5BCE00110420 /* BaseNavigationController.swift */; };
 		E37E87E520FAC6F8006ADA1D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37E87E420FAC6F8006ADA1D /* UIColor+Hex.swift */; };
 		E392502F20FB52C900367DAC /* AlbumsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392502E20FB52C900367DAC /* AlbumsProtocols.swift */; };
 		E392503120FB52D900367DAC /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392503020FB52D900367DAC /* AlbumsViewController.swift */; };
@@ -91,6 +92,7 @@
 		730441A2E3F7A484787EF84E /* Pods-APPSfactoryTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APPSfactoryTestTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-APPSfactoryTestTask/Pods-APPSfactoryTestTask.release.xcconfig"; sourceTree = "<group>"; };
 		77941A1C1148C15F6DE07959 /* Pods-APPSfactoryTestTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APPSfactoryTestTaskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APPSfactoryTestTaskTests/Pods-APPSfactoryTestTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C56BC2D7224364278909E4A /* Pods_APPSfactoryTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APPSfactoryTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3787D6D20FF5BCE00110420 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		E37E87E420FAC6F8006ADA1D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		E392502E20FB52C900367DAC /* AlbumsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsProtocols.swift; sourceTree = "<group>"; };
 		E392503020FB52D900367DAC /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				E3A2566E20F9FCFB0019BBA5 /* BaseViewController.swift */,
 				E3A2567F20FA35510019BBA5 /* BaseCollectionViewCell.swift */,
 				E3A256A020FAACAE0019BBA5 /* BaseTableViewCell.swift */,
+				E3787D6D20FF5BCE00110420 /* BaseNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				E3A99B9520F937F3004C2EBD /* AlbumStorage.swift in Sources */,
 				E3A99B8E20F91734004C2EBD /* AlbumInfoRequest.swift in Sources */,
 				E3A2568720FA36BD0019BBA5 /* DependencyManager.swift in Sources */,
+				E3787D6E20FF5BCE00110420 /* BaseNavigationController.swift in Sources */,
 				E3A99BB220F97FF7004C2EBD /* NSSortDescriptor+Albums.swift in Sources */,
 				E3A256A120FAACAE0019BBA5 /* BaseTableViewCell.swift in Sources */,
 				E392503520FB530300367DAC /* AlbumsCell.swift in Sources */,
