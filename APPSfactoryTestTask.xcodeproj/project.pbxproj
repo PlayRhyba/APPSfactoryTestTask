@@ -210,8 +210,7 @@
 				E392503020FB52D900367DAC /* AlbumsViewController.swift */,
 				E392503220FB52EA00367DAC /* AlbumsPresenter.swift */,
 			);
-			name = Albums;
-			path = ViewControllers/Albums;
+			path = Albums;
 			sourceTree = "<group>";
 		};
 		E392502D20FB529B00367DAC /* Cell */ = {
@@ -230,8 +229,7 @@
 				E392503F20FBB03200367DAC /* DetailsViewController.swift */,
 				E392503D20FBB01200367DAC /* DetailsPresenter.swift */,
 			);
-			name = Details;
-			path = ViewControllers/Details;
+			path = Details;
 			sourceTree = "<group>";
 		};
 		E3A0924E20F7D7900005C88E = {
@@ -313,9 +311,6 @@
 			children = (
 				E3A2566D20F9FCD20019BBA5 /* Base */,
 				E3A11CDE20F7F8CD0065EC3A /* ViewControllers */,
-				E3A2569020FA75F00019BBA5 /* Search */,
-				E392502C20FB529B00367DAC /* Albums */,
-				E392503C20FBAFFA00367DAC /* Details */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -324,6 +319,9 @@
 			isa = PBXGroup;
 			children = (
 				E3A11CDF20F7F8CD0065EC3A /* Home */,
+				E3A2569020FA75F00019BBA5 /* Search */,
+				E392502C20FB529B00367DAC /* Albums */,
+				E392503C20FBAFFA00367DAC /* Details */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -450,8 +448,7 @@
 				E3A2569420FA76350019BBA5 /* SearchViewController.swift */,
 				E3A2569620FA76410019BBA5 /* SearchPresenter.swift */,
 			);
-			name = Search;
-			path = ViewControllers/Search;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		E3A2569120FA76130019BBA5 /* Cell */ = {

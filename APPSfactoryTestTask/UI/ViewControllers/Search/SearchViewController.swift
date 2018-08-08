@@ -30,6 +30,16 @@ final class SearchViewController: BaseViewController {
         configureSearchController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addKeyboardObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboadObservers()
+    }
+    
 }
 
 // MARK: IBAction
@@ -153,6 +163,57 @@ private extension SearchViewController {
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.black
         
         navigationItem.titleView = self.searchController.searchBar
+    }
+    
+    func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(notification:)),
+                                               name: .UIKeyboardWillShow,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(notification:)),
+                                               name: .UIKeyboardWillHide,
+                                               object: nil)
+    }
+    
+    func removeKeyboadObservers() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    
+}
+
+// MARK: Nofifications
+
+private extension SearchViewController {
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let size = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size else {
+            return
+        }
+        
+        tableView.contentInset = UIEdgeInsets(top: tableView.contentInset.top,
+                                              left: tableView.contentInset.left,
+                                              bottom: size.height,
+                                              right: tableView.contentInset.right)
+        
+        tableView.scrollIndicatorInsets = UIEdgeInsets(top: tableView.scrollIndicatorInsets.top,
+                                                       left: tableView.scrollIndicatorInsets.left,
+                                                       bottom: size.height,
+                                                       right: tableView.scrollIndicatorInsets.right)
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        tableView.contentInset = UIEdgeInsets(top: tableView.contentInset.top,
+                                              left: tableView.contentInset.left,
+                                              bottom: 0,
+                                              right: tableView.contentInset.right)
+        
+        tableView.scrollIndicatorInsets = UIEdgeInsets(top: tableView.scrollIndicatorInsets.top,
+                                                       left: tableView.scrollIndicatorInsets.left,
+                                                       bottom: 0,
+                                                       right: tableView.scrollIndicatorInsets.right)
     }
     
 }
