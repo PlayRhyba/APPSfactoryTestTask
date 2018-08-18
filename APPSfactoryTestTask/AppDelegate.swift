@@ -13,7 +13,7 @@ import SwinjectStoryboard
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let container = DependencyManager.makeContainer()
+    private let container = DependencyManager.makeContainer()
     
     // MARK: Application Lifecycle
     

@@ -29,6 +29,9 @@ protocol HomePresenterProtocol: ScreenPresenterProtocol {
     /// - Parameter indexPath: index path
     func selectCell(at indexPath: IndexPath)
     
+    /// Search action
+    func search()
+    
 }
 
 protocol HomeViewProtocol: ScreenViewProtocol {
@@ -45,6 +48,9 @@ protocol HomeViewProtocol: ScreenViewProtocol {
     ///
     /// - Parameter details: album details info
     func showAlbum(details: DetailsPresentable)
+    
+    /// Show search screen
+    func showSearch()
     
 }
 

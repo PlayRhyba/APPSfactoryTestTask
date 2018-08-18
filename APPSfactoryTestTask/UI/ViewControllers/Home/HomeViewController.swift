@@ -32,6 +32,16 @@ final class HomeViewController: BaseViewController {
     
 }
 
+// MARK: Actions
+
+extension HomeViewController {
+    
+    @IBAction func searchButtonClicked() {
+        getPresenter()?.search()
+    }
+    
+}
+
 // MARK: HomeViewProtocol
 
 extension HomeViewController: HomeViewProtocol {
@@ -48,6 +58,16 @@ extension HomeViewController: HomeViewProtocol {
         }
         
         (vc.presenter as? DetailsPresenterProtocol)?.details = details
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showSearch() {
+        let identifier = SearchViewController.identifier
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: identifier) as? SearchViewController else {
+            return
+        }
         
         navigationController?.pushViewController(vc, animated: true)
     }

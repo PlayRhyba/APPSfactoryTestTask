@@ -61,6 +61,10 @@ extension HomePresenter: HomePresenterProtocol {
         getView()?.showAlbum(details: album)
     }
     
+    func search() {
+        getView()?.showSearch()
+    }
+    
 }
 
 // MARK: Private

@@ -129,13 +129,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="gq5-yl-bWq">
                             <color key="tintColor" red="0.60392156862745094" green="0.29411764705882354" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="2Bq-J5-b1P" kind="show" id="meD-FO-j6A"/>
+                                <action selector="searchButtonClicked" destination="BYZ-38-t0r" id="1td-XM-uVD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Abi-9j-TYV" id="Eet-bn-ynz"/>
                         <outlet property="placeholderLabel" destination="HbF-LQ-1wc" id="9CA-gM-8VI"/>
+                        <segue destination="2Bq-J5-b1P" kind="show" identifier="HomeToSearch" id="3gT-Cr-2w5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -230,11 +231,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jwM-JY-UNQ" id="82y-i0-qA5"/>
+                        <segue destination="Jv7-DT-YBC" kind="show" identifier="searchToAlbums" id="flU-7a-4Yb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bp-8c-vcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943.20000000000005" y="-98.50074962518741"/>
+            <point key="canvasLocation" x="927" y="-98"/>
         </scene>
         <!--Albums View Controller-->
         <scene sceneID="Yj0-39-A0t">
@@ -345,6 +347,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="whQ-3y-94i" id="IEn-oY-r4q"/>
+                        <segue destination="6kJ-JY-lhV" kind="show" identifier="AlbumsToDetails" id="Dqa-gx-jGx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydL-5l-9H2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -448,7 +451,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LwJ-Wu-Dz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2282.4000000000001" y="-102.09895052473765"/>
+            <point key="canvasLocation" x="2346" y="-98"/>
         </scene>
     </scenes>
     <resources>
