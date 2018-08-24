@@ -99,10 +99,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="19h-FU-PF5"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Bto-cP-nfd"/>
-                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No stored albums.  Please search." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbF-LQ-1wc">
                                 <rect key="frame" x="107.5" y="309.5" width="161.5" height="48"/>

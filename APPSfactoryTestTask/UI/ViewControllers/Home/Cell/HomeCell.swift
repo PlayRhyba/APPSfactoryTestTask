@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-final class HomeCell: BaseCollectionViewCell {
+final class HomeCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
@@ -22,11 +22,7 @@ final class HomeCell: BaseCollectionViewCell {
         configureAppearance()
     }
     
-}
-
-// MARK: HomeCellViewProtocol
-
-extension HomeCell: HomeCellViewProtocol {
+    // MARK: Public
     
     func update(title: String?, artist: String?, imageURL: URL?) {
         titleLabel.text = title

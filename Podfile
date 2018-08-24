@@ -8,6 +8,7 @@ target 'APPSfactoryTestTask' do
   pod 'Swinject'
   pod 'SwinjectStoryboard'
   pod 'SVProgressHUD'
+  pod 'RealmSwift'
 
   target 'APPSfactoryTestTaskTests' do
     inherit! :search_paths

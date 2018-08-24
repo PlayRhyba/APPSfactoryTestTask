@@ -20,3 +20,24 @@ enum OperationError: Error {
     case canceled
     
 }
+
+extension OperationError {
+    
+    /// Message to display
+    var message: String? {
+        switch self {
+        case .decoding(let text):
+            return text
+            
+        case .networking(let text):
+            return text
+            
+        case .database(let text):
+            return text
+            
+        default:
+            return localizedDescription
+        }
+    }
+    
+}

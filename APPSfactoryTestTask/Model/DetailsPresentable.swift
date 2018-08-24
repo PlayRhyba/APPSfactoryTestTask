@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alexander Snegursky. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
 
 protocol DetailsPresentable {
     
@@ -46,12 +46,7 @@ extension Album: DetailsPresentable {
     }
     
     var albumTracks: [String] {
-        guard let tracks = tracks?.allObjects as? [Track] else {
-            return []
-        }
-        
-        return tracks.compactMap { $0.title }
-            .filter { !$0.isEmpty }
+        return Array(tracks).compactMap { $0.title }
     }
     
 }
